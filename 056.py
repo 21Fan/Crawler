@@ -8,13 +8,23 @@ def url_open(url):
     html = response.read()
     return html
 def get_page(url):
-    url
+    html = url_open(url).decode('utf-8')
 
     a = html.find('current-comment-page') + 23 #find返回字符串首位置
     b = html.find(']',a) #起始位置a开始找]
 
     return html[a:b]
 def find_imgs(url):
+    html = url_open(url).decode('utf-8')
+    img_addrs = []
+    
+    a = html.find('img src=')
+    while a != -1:
+        b = html.find('jpg',a,a+255)
+        if b != -1:
+            img_addrs.append(html[a+9:b+4])
+        else:
+            b = a+9
 
     
 def save_imgs(folde,img_addrs):
