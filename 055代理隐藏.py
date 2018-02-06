@@ -1,7 +1,7 @@
 import urllib.request as ur
 import random
 
-url = 'http://www.whatismyip.com.tw'
+url = 'https://www.dy2018.com/i/31210.html'
 
 iplist = ['219.157.114.65']
 proxy_support = ur.ProxyHandler({'http':random.choice(iplist)})
@@ -11,5 +11,5 @@ opener.addheaders = [('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)Ap
 #安装opener
 ur.install_opener(opener)
 response = ur.urlopen(url)
-html = response.read().decode('utf-8')
+html = response.read().decode('gb2312')
 print(html)
